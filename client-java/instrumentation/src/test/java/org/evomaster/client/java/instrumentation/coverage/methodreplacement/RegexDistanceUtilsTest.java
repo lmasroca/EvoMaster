@@ -72,8 +72,9 @@ public class RegexDistanceUtilsTest {
     public void testS(){
 
         verifyYesNo("\\s", " ", "s");
-        //FIXME
-        //verifyYesNo("\\s", "\t", "s");
+        verifyYesNo("\\s", "\t", "s");
+        verifyYesNo("\\s", Character.toString((char) 0x0B), "s");
+        verifyYesNo("\\s", "\u000B", "s");
     }
 
     @Test

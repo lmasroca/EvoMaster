@@ -33,14 +33,12 @@ public class RegexUtils {
 
         // \D	A non-digit: [^0-9]
         newRegex = newRegex.replaceAll("\\\\D", "[^0-9]");
-
+        
         // \s	A whitespace character: [ \t\n\x0B\f\r]
-        //newRegex = newRegex.replaceAll("\\\\s", "[ \\t\\n\\f\\r]"); //FIXME does not work
-        newRegex = newRegex.replaceAll("\\\\s", " ");
+        newRegex = newRegex.replaceAll("\\\\s", "[ \t\n\u000B\f\r]");
 
         // \S	A non-whitespace character: [^\s]
-        //newRegex = newRegex.replaceAll("\\\\S", "[^ \\t\\n\\f\\r]"); //FIXME does not work
-        newRegex = newRegex.replaceAll("\\\\S", "[a-zA-Z_0-9]");
+        newRegex = newRegex.replaceAll("\\\\S", "[^ \t\n\u000B\f\r]");
 
         // \w	A word character: [a-zA-Z_0-9]
         newRegex = newRegex.replaceAll("\\\\w", "[a-zA-Z_0-9]");
